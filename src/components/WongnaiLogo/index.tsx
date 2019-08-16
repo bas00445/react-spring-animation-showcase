@@ -9,7 +9,7 @@ import {
 } from "react-spring";
 
 export default () => {
-  const [toggleAnim, setToggleAnim] = useState(true);
+  const [toggleAnim, setToggleAnim] = useState(false);
   const strokeLength = 900;
 
   const drawRef = React.createRef<SpringHandle>();

@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import React from "react";
 import RadialMenu from ".";
 import Button from "./Button";
+import { Center } from "../../globalStyles";
 
 const buttons = [
   <Button label="1" backgroundColor="black" onClick={action("click")} />,
@@ -13,16 +14,7 @@ const buttons = [
 ];
 
 storiesOf("RadialMenu", module).add("default", () => (
-  <div
-    style={{
-      width: "100vw",
-      height: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center"
-    }}
-  >
+  <Center>
     <RadialMenu buttons={buttons} radius={80} shift={40} />
-  </div>
+  </Center>
 ));

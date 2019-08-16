@@ -1,6 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import Badge from ".";
+import { Center } from "../../globalStyles";
 
 export default function BadgeDemo() {
   const [value, setValue] = React.useState(0);
@@ -15,18 +16,9 @@ export default function BadgeDemo() {
   }, []);
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <Badge value={value} />
-    </div>
+    <Center>
+      <Badge value={value} size={40} />
+    </Center>
   );
 }
 

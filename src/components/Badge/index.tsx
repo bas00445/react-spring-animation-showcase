@@ -1,12 +1,12 @@
-import React from "react";
-import { useSpring, animated, config } from "react-spring";
-import styled from "styled-components";
+import React from 'react'
+import {useSpring, animated, config} from 'react-spring'
+import styled from 'styled-components'
 
-interface CircleDiv {
-  size: number;
+interface CircleDivProps {
+  size: number
 }
 
-const CircleDiv = styled(animated.div)<CircleDiv>`
+const CircleDiv = styled(animated.div)<CircleDivProps>`
   border-radius: 50%;
   color: white;
   background: red;
@@ -17,33 +17,34 @@ const CircleDiv = styled(animated.div)<CircleDiv>`
   justify-content: center;
   font-size: 24px;
   text-align: center;
-`;
+`
 
 interface Props {
-  value: number;
+  value: number
+  size?: number
 }
 
-export default function Badge({ value }: Props) {
-  const [resetAnim, setResetAnim] = React.useState(false);
+export default function Badge({value}: Props) {
+  const [resetAnim, setResetAnim] = React.useState(false)
   const popupAnim = useSpring({
     from: {
-      transform: `scale(0) rotate(270deg)`
+      transform: `scale(0) rotate(270deg)`,
     },
     to: {
-      transform: `scale(1) rotate(0deg)`
+      transform: `scale(1) rotate(0deg)`,
     },
     config: config.stiff,
     onRest: () => setResetAnim(false),
-    reset: resetAnim
-  });
+    reset: resetAnim,
+  })
 
   React.useEffect(() => {
-    setResetAnim(true);
-  }, [value]);
+    setResetAnim(true)
+  }, [value])
 
   return (
     <CircleDiv style={popupAnim} size={50}>
       {value}
     </CircleDiv>
-  );
+  )
 }

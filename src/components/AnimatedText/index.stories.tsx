@@ -1,18 +1,10 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import AnimatedText from ".";
+import { Center } from "../../globalStyles";
 
 storiesOf("AnimatedText", module).add("default", () => (
-  <div
-    style={{
-      width: "100vw",
-      height: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center"
-    }}
-  >
+  <Center>
     <AnimatedText text="We are Wongnai" fontSize={40} />
-  </div>
+  </Center>
 ));
