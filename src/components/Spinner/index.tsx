@@ -6,13 +6,11 @@ export default function Spinner() {
   const [looping, setLooping] = React.useState(false);
 
   const spinAnim = useSpring({
-    from: {
-      transform: `rotate(0deg)`
-    },
+    from: { transform: `rotate(0deg)` },
     to: async next => {
       while (looping) {
         await next({ transform: `rotate(360deg)` });
-        await next({ transform: `rotate(0deg)` });
+        await next({ reset: true });
       }
     }
   });
