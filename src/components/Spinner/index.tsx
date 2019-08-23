@@ -12,6 +12,10 @@ export default function Spinner() {
         await next({ transform: `rotate(360deg)` });
         await next({ reset: true });
       }
+    },
+    config: {
+      tension: 150,
+      friction: 26
     }
   });
 
@@ -37,4 +41,5 @@ const Center = styled(animated.div)`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  font-size: 24px;
 `;
