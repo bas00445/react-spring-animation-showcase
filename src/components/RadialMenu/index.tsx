@@ -1,10 +1,5 @@
 import React, { useState, useRef } from "react";
-import {
-  useChain,
-  animated,
-  config,
-  useSprings,
-} from "react-spring";
+import { useChain, animated, config, useSprings } from "react-spring";
 
 import Button from "./Button";
 
@@ -46,12 +41,9 @@ export default function({ buttons, radius, shift }: Props) {
         right: toggle ? item.x : 0,
         bottom: toggle ? item.y : 0
       },
-      ref: moveToCoordinateRef,
       delay: index * 100
     }))
   );
-
-  useChain([moveToCoordinateRef]);
 
   return (
     <div style={{ position: "relative" }}>
