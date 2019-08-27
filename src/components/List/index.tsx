@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import { animated, useTransition } from "react-spring";
+import { animated, useTransition, config } from "react-spring";
 import styled from "styled-components";
 
 const ListItem = styled.div`
@@ -12,11 +12,12 @@ const ListItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid black;
 `;
 
 const AnimatedListItem = animated(ListItem);
 
-const length = 10;
+const length = 5;
 
 const dataItems: any[] = [];
 for (let i = 0; i < length; i++) {
@@ -36,18 +37,24 @@ export default function List({ items = dataItems }: Props) {
       opacity: 0
     },
     enter: {
-      height: 100,
+      height: 120,
       opacity: 1
     },
     leave: {
       height: 0,
       opacity: 0
-    }
+    },
+    config: config.stiff
   });
 
-  const onRemoveItem = (removedIndex: number) => {
-    setArray(array.filter((value, index) => index != removedIndex));
-  };
+  const onRemoveItem = React.useCallback(
+    (removedIndex: number) => {
+      console.log({ removedIndex });
+      array.splice(removedIndex, 1);
+      setArray([...array]);
+    },
+    [array]
+  );
 
   React.useEffect(() => {
     console.log({ array });

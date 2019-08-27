@@ -1,9 +1,16 @@
+const path = require("path");
+const srcDir = path.resolve(__dirname, "../src");
+
 module.exports = ({ config }) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
+    include: srcDir,
     use: [
       {
-        loader: require.resolve("awesome-typescript-loader")
+        loader: require.resolve("babel-loader"),
+        options: {
+          presets: ["@babel/preset-react", "@babel/preset-typescript"]
+        }
       }
     ]
   });
