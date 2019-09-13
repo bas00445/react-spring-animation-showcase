@@ -66,11 +66,11 @@ export default function Modal({ visible, width, children }: Props) {
       transform: visible ? "scale(1)" : "scale(0.5)",
       opacity: visible ? 1 : 0
     },
-    config: config.stiff,
+    config: config.slow,
     ref: modalRef
   });
 
-  useChain([backgroundRef, modalRef]);
+  useChain([backgroundRef, modalRef], [0, 0]);
 
   return visible ? (
     <div>

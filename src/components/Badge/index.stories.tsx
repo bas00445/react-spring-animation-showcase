@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import Badge from ".";
-import { Center } from "../../globalStyles";
+import { Center } from "../../global/globalStyles";
 
 export default function BadgeDemo() {
   const [value, setValue] = React.useState(0);

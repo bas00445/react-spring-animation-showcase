@@ -12,7 +12,6 @@ const ListItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
 `;
 
 const AnimatedListItem = animated(ListItem);
@@ -44,21 +43,16 @@ export default function List({ items = dataItems }: Props) {
       height: 0,
       opacity: 0
     },
-    config: config.stiff
+    config: { friction: 30, tension: 300 }
   });
 
   const onRemoveItem = React.useCallback(
     (removedIndex: number) => {
-      console.log({ removedIndex });
       array.splice(removedIndex, 1);
       setArray([...array]);
     },
     [array]
   );
-
-  React.useEffect(() => {
-    console.log({ array });
-  }, [array]);
 
   return (
     <Fragment>

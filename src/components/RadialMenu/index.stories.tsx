@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import React from "react";
 import RadialMenu from ".";
 import Button from "./Button";
-import { Center } from "../../globalStyles";
+import { Center } from "../../global/globalStyles";
 import { randomColor } from "../../helpers/RandomColor";
 
 // const buttons = [

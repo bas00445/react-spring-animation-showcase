@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "../../components/Modal";
-import { FillParent } from "../../globalStyles";
+import { FillParent } from "../../global/globalStyles";
 
 export default function PageModal() {
   return (

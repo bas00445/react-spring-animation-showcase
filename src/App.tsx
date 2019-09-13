@@ -7,34 +7,42 @@ import "./App.css";
 import { randomColor } from "./helpers/RandomColor";
 import PageAnimatedText from "./pages/PageAnimatedText";
 import PageModal from "./pages/PageModal";
+import Sidebar from "./components/Sidebar";
+import { AppRoute } from "./global/types";
+import { Row } from "./global/globalStyles";
+
+const routes: AppRoute[] = [
+  { name: "animated_text", url: "/animated_text", component: PageAnimatedText },
+  { name: "modal", url: "/modal", component: PageModal }
+];
 
 const App: React.FC = () => {
   const { location } = useReactRouter();
 
-  const transition = useTransition(location, location => location.pathname, {
-    from: { opacity: 0, transform: "translate3d(100%,0,0)" },
-    enter: { opacity: 1, transform: "translate3d(0%,0,0)" },
-    leave: { opacity: 0, transform: "translate3d(-50%,0,0)" }
-  });
+  const [sidebarVisible, setSidebarVisible] = React.useState(true);
 
   return (
     <div className="App">
-      {transition.map(({ item, key, props }) => (
-        <PageContainer style={props} key={key}>
-          <Switch location={item}>
-            <Route path="/animated_text" component={PageAnimatedText} />
-            <Route path="/modal" component={PageModal} />
+      <Row>
+        <Sidebar visible={sidebarVisible} routes={routes} />
+        <PageContainer>
+          <Switch>
+            {/* <Route path="/animated_text" component={PageAnimatedText} />
+          <Route path="/modal" component={PageModal} /> */}
+            {routes.map(route => (
+              <Route path={route.url} component={route.component} />
+            ))}
           </Switch>
         </PageContainer>
-      ))}
+      </Row>
     </div>
   );
 };
 
 export default App;
 
-export const PageContainer = styled(animated.div)`
-  background: ${randomColor(40)};
+export const PageContainer = styled.div`
+  background: white;
   color: white;
   width: 100%;
   height: 100%;

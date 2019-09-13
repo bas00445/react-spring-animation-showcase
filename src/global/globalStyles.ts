@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { randomColor } from "./helpers/RandomColor";
+import { randomColor } from "../helpers/RandomColor";
 
 export const Center = styled.div`
   width: 100vw;
@@ -20,4 +20,11 @@ export const PageContainer = styled.div`
 export const FillParent = styled.div`
   width: 100%;
   height: 100%;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: inherit;
+  width: inherit;
 `;

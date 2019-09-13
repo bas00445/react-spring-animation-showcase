@@ -17,7 +17,8 @@ export default function AnimatedText({ text, fontSize }: Props) {
     from: {
       transform: `translateY(100px)`,
       fontSize: `${fontSize}px`,
-      opacity: 0
+      opacity: 0,
+      color: "#444444"
     },
     to: {
       transform: `translateY(0px)`,

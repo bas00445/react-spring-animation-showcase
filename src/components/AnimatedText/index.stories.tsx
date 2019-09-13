@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import AnimatedText from ".";
-import { Center } from "../../globalStyles";
+import { Center } from "../../global/globalStyles";
 
 storiesOf("AnimatedText", module).add("default", () => (
   <Center>
